@@ -81,4 +81,4 @@ See full source code in this [commit](https://github.com/sysrep/time-viz/commit/
 
 ##TASK
 
-Try to edit `App.css` and `App.js`. Add new CSS Classes in `App.css` for `<h2></h2>` tag and `<li></li>` tag.
+Try to edit `App.css` and `App.js`. Add new CSS Classes for `<h2></h2>` tag and `<li></li>` tag and see their styling changes on browser.
