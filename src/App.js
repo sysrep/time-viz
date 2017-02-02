@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { loadEvents } from './lib/loadEvents.js'
+import { Event }  from './components/event'
 
 class App extends Component {
   constructor() {
@@ -28,7 +29,7 @@ class App extends Component {
           <option value="errand">errand</option>
         </select>
         <ul>
-          {this.state.events.map(event => <li key={event.id} >{event.targettedResource.title}</li> )}
+          {this.state.events.map(event =>  <Event event={event} key={event.id}/> )}
         </ul>
       </div>
     );
