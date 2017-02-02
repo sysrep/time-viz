@@ -10,3 +10,6 @@ Step 1
 
 Step 2
 * [Call DiMe API](https://github.com/sysrep/time-viz/blob/master/Call_DiMe_API.md)
+
+Step 3
+* [Stateless Functional Component](https://github.com/sysrep/time-viz/blob/master/Stateless_Functional_Component.md_
