@@ -87,6 +87,7 @@ Open browser console. There should be a warning says `warning.js:36 Warning: Eac
 [take a break for 10 mins]
 
 # A Controlled Component
+
 In react, our render view should be function of application states. If we change the state, the UI should be change accordingly. In this section, we will mutate the application states via user interactions on a “controlled component” and see changes on the UI accordingly (the UI is a representation of the current application state).
 
 To see the React application state, you can install the [React Dev Tool](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US)
@@ -119,12 +120,9 @@ If you're new to React, you're first instinct might be to call `this.state`, `.c
 
 I'll call `this.setState`. I'm going to pass `.setState` an object (`{ currentEventType: event.target.value }`). This object is going to contain the key or the keys (`currentEventType`) that I want to update, along with their new values (`event.target.value`).
 
-I want to update the `.currentEventType` value and I want that to be this `event.target.value`, so paste that in there. In order for this method to update our state, we have to do two things. First, we need to reference it in our constructor and bind it to this.
+I want to update the `.currentEventType` value and I want that to be this `event.target.value`, so paste that in there. In order for this method to update our state, we have to do two things. First, we need to reference it in our constructor and bind it to this. (There are [many ways](https://medium.com/@housecor/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56#.kddkemxl5) to bind "this". I prefer "Use Arrow Function in Class Property")
 
-I save my changes, the browser's refresh. I'm going to open up my React DevTools. I'm going to the React DevTools. We'll see that CurrenttoDo is part of my state. I'm going to come up to my input. I'm going to start typing a value in.
-
-As I type each character, we're going to see the CurrenttoDo in our state down in DevTools gets updated to reflect the current value of our input.
+I save my changes, the browser's refresh. I'm going to open up my React DevTools. We'll see that `currentEventType` is part of my state. I'm going to come up to my dropdown menu. I'm going to change the option. As I change the option, we're going to see the `currentEventType` in our state down in DevTools gets updated to reflect the current value of our my dropdown menu.
 
 By doing this, we've ensured that our view as a function of state, keeping the rendered output and the state data in sync.
-
 
