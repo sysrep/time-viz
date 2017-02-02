@@ -76,4 +76,6 @@ We have a state called events now. We want to render it (make it visible). In th
 We are using curly braces to separate my new JavaScript (`<li>{event.targettedResource.title}</li>`)from the surrounding JSX with `this.state.events`. For each event, I want to return the JSX that's going to represent what we had in our static markup, which is a list item with the content of our event and in order to do that I can use a "map". The map function will take its own function that will get a event. It will pass that into our mapping function. (more on the map on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 Open browser console. There should be a warning says `warning.js:36 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of App`. To avoid this error, we should add `key={event.id}` on the `<li>{event.targettedResource.title}</li>`
 
+See full source code in this commit <https://github.com/sysrep/time-viz/commit/c759edc31ffd489db04f0c2a8bbc7fc0c5d548b9>
+
 [take a break for 10 mins]
