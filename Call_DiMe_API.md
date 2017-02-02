@@ -15,8 +15,8 @@ const url = 'http://localhost:8080/api/data/events'
 When we call the DiMe API, We need username and password. Let's do it by adding a new const `option` when calling fetch.
 
 ```
-const username = [your_user_name];
-const password = [your_password];
+const username = 'chen';
+const password = '12345';
 const options = {
     headers: {
       Authorization: `Basic ${window.btoa(`${username}:${password}`)}`,
@@ -32,4 +32,10 @@ export const loadEvents = () => {
     .then(res => res.json())
 }
 ```
+
+Go Back to `App.js`, import `loadEvents` function at the beginning of the file.
+
+```
+```
+
 
