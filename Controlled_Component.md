@@ -35,4 +35,5 @@ I save my changes, the browser's refresh. I'm going to open up my React DevTools
 
 By doing this, we've ensured that our view as a function of state, keeping the rendered output and the state data in sync.
 
-[take a break for 10 mins]
+
+See full source code in this commit <https://github.com/sysrep/time-viz/commit/c759edc31ffd489db04f0c2a8bbc7fc0c5d548b9>
