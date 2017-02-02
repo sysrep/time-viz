@@ -52,3 +52,7 @@ Event.propTypes = {
 }
 ```
 Source code in this [commit](https://github.com/sysrep/time-viz/commit/46a8c31323889bf07e8d182dc44fb021767f80fd)
+
+The next thing I will do is to make a stateless functional component for our dropdown menu. I will follow the same steps in this tutorial. I suggest you to try by your self. The answer is in this commit.
+
+
