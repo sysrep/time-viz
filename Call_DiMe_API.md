@@ -4,8 +4,7 @@ I will create a "service" that help me to load events from DiMe. First, add a ne
 
 In `loadEvent.js`, I'm going to start with a constant. The first thing I want to do with this API is use it to load the events into the application when the application starts. I search in the WiKi of DiMe and find the [API Doc](https://github.com/HIIT/dime-server/wiki/API)
 
-I want all events at the same time, according to the API Doc, I should call GET on <http://localhost:8080/api/data/events>
-<http://www.hiit.fi/g/reknow/apidoc/dime-server/#api-Events-GetAll>
+I want all events at the same time, according to the [API Doc](http://www.hiit.fi/g/reknow/apidoc/dime-server/#api-Events-GetAll), I should call GET on <http://localhost:8080/api/data/events>
 
 The const url has the corret value (the API endpoint of DiMe events).
 ```
@@ -36,6 +35,24 @@ export const loadEvents = () => {
 Go Back to `App.js`, import `loadEvents` function at the beginning of the file.
 
 ```
+import { loadEvents } from './lib/loadEvents.js'
 ```
+I will call `loadEvents` when my application fully loaded, the `componentDidMount()` seems to be the right place. Add the method after the constructor.
+```
+  componentDidMount() {
+    loadEvents().then(events => this.setState({ events }))
+  }
+```
+Since we are calling DiMe APIs to get events, to make sure the data is coming from DiMe, delete items in `this.states.events` and make it an empty array.
+```
+constructor() {
+    super()
+    this.state = {
+      events: [],
+      currentEventType: '',
+    }
+}
+``` 
+See the list of events from DiMe is the browser.
 
-
+[10 mins break]
