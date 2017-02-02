@@ -17,11 +17,7 @@ Let's add a dropdown menu using HTML "select" tag with options in the method `re
 And I also add a new key `currentEventType` property in the state.
 ```
 this.state = {
-  events: [
-    { id: 0, type: 'work', content: 'Yo! Hello World'},
-    { id: 1, type: 'errand', content: 'Its Me Again'},
-    { id: 2, type: 'errand', content: 'No not again'},
-  ],
+  events: [...],
   currentEventType: '',
 }
 ```
