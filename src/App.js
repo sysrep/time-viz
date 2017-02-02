@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { loadEvents } from './lib/loadEvents.js'
 import { Event }  from './components/event'
+import { EventTypeSelector } from './components/eventTypeSelector'
 
 class App extends Component {
   constructor() {
@@ -24,10 +25,10 @@ class App extends Component {
           <span>MyTimeLine</span>
         </div>
         <h2>Event Type</h2>
-        <select value={this.state.currentEventType} onChange={this.handleSelectionChange}>
-          <option value="work">work</option>
-          <option value="errand">errand</option>
-        </select>
+        <EventTypeSelector
+          currentEventType={this.state.currentEventType}
+          handleSelectionChange={this.handleSelectionChange}
+        />
         <ul>
           {this.state.events.map(event =>  <Event event={event} key={event.id}/> )}
         </ul>
