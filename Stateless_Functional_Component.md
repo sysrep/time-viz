@@ -42,4 +42,12 @@ Add also in `App`. Add event props on `<Event />`
 </ul>
 ```
 
+This `<Event />` component represents a event that we can use to create new event items. In order for it to function properly, it receives a prop that is a javascript object contains the data of an event. If another member of our team wanted to use this component in another part of the application we'd like to be able to ensure they are passing in the correct props. Luckily, React has a mechanism for validating our component input called prop types. The first step in defining prop types for a component is to reference that component and call its prop types property.
 
+I'll start with current `<Event />` component. We want to specify the `<Event />` component should be an object. We'll do that by calling `react.proptypes.string`. It's important to note when we're referencing prop types off of React to pick the type for our property we want to make sure we use the prop types here with a capital P. (see list of [React PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)).
+
+```
+Event.propTypes = {
+  event: React.PropTypes.object,
+}
+```
