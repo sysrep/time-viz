@@ -68,9 +68,9 @@ Add a constrictor in your class to intial the states of the component:
     super()
     this.state = {
       events: [
-        { id: 0, content: 'Yo! Hello World'},
-        { id: 1, content: 'Its Me Again'},
-        { id: 2, content: 'No not again'},
+        { id: 0, type: 'work', content: 'Yo! Hello World'},
+        { id: 1, type: 'errand', content: 'Its Me Again'},
+        { id: 2, type: 'errand', content: 'No not again'},
       ]
     }
   }
@@ -87,4 +87,10 @@ Open browser console. There should be a warning says `warning.js:36 Warning: Eac
 [take a break for 10 mins]
 
 # A Controlled Component
-In react, our render view should be function of application states. If we change the state, the UI should be change accordingly.
+In react, our render view should be function of application states. If we change the state, the UI should be change accordingly. In this section, we will mutate the application states via user interactions on a “controlled component” and see changes on the UI accordingly (the UI is a representation of the current application state).
+
+I will add a dropdown menu using HTML "select" tag with options. 
+
+```
+
+```
