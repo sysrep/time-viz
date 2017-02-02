@@ -51,3 +51,4 @@ Event.propTypes = {
   event: React.PropTypes.object,
 }
 ```
+Source code in this [commit](https://github.com/sysrep/time-viz/commit/46a8c31323889bf07e8d182dc44fb021767f80fd)
