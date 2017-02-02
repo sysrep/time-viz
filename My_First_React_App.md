@@ -1,7 +1,5 @@
-
-See full source code in this commit <https://github.com/sysrep/time-viz/commit/9b573965c9d5fac1b4caf5e72e6b50465ea1ab94>
-
 # Create a React Component and apply CSS styles
+
 replace all content in `App.js` with the following code:
 ```
 import React, { Component } from 'react';
