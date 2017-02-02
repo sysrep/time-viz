@@ -15,7 +15,7 @@ build a timeline visualization using your digital footprint.
 
 [take a break for 10 mins]
 
-# Get Start
+# Start!
 * I prefer the Atom editor <https://atom.io/>
 * cd to your project folder
 * `yarnpkg start`
