@@ -1,35 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import { loadEvents } from './lib/loadEvents.js'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      events: [
-        {
-          id: 0,
-          type: 'work',
-          targettedResource: {
-            title: 'Yo! Hello World'
-          },
-        },
-        {
-          id: 1,
-          type: 'errand',
-          targettedResource: {
-            title: 'Its Me Again',
-          },
-        },
-        {
-          id: 2,
-          type: 'errand',
-          targettedResource: {
-            title: 'No not again',
-          }
-        },
-      ],
+      events: [],
       currentEventType: '',
     }
+  }
+  componentDidMount() {
+    loadEvents().then(events => this.setState({ events }))
   }
   handleSelectionChange = (event) => {
     this.setState({ currentEventType: event.target.value });
