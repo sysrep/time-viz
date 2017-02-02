@@ -126,3 +126,4 @@ I save my changes, the browser's refresh. I'm going to open up my React DevTools
 
 By doing this, we've ensured that our view as a function of state, keeping the rendered output and the state data in sync.
 
+[take a break for 10 mins]
