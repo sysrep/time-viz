@@ -78,5 +78,3 @@ We are using curly braces to separate my new JavaScript (`<li>{event.targettedRe
 Open browser console. There should be a warning says `warning.js:36 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of App`. To avoid this error, we should add `key={event.id}` on the `<li>{event.targettedResource.title}</li>`
 
 See full source code in this [commit](https://github.com/sysrep/time-viz/commit/9b573965c9d5fac1b4caf5e72e6b50465ea1ab94)
-
-[take a break for 10 mins]
