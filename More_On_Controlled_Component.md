@@ -8,5 +8,59 @@ Let's look at the this.state.events to see what event types we have. There seems
 
 We see another key in the event object. There is a "start" key in the object. This is the timestamp of events. If we want to filter events by a key. Filtering timestamps will be useful since we are creating a timeline.
 
-I will duplicate the folder of eventTypeSelector and rename it as eventDateSelector. I will use a HTML5 input element with the type "datatime-local" here. We want a range of time so there should be a "from" value
+I will duplicate the folder of eventTypeSelector and rename it as eventDateSelector. I will use the `form` tag as my wrapper element.
+
+```
+export const EventDateSelector = (props) => (
+  <form>
+  </form>
+)
+```
+
+I will use a HTML5 input element with the type "datatime-local" here. We want a range of time so there should be a "from" input element (with a label "from").
+
+```
+<label>from
+  <input
+    type="datetime-local"
+  />
+</label>
+```
+And also the "to" input with a label.
+```
+<label>to
+  <input
+    type="datetime-local"
+  />
+</label>
+```
+I want the our `EventDateSelect` to be a controlled component. I will link the `props` to the value of the input. I also add a listener on the element so if the value changes we will mutate the application states accordingly.
+
+The fully-controlled component with two inputs.
+```
+<form>
+  <label>from
+    <input
+      type="datetime-local"
+      value={props.from}
+      onChange={props.onFromChange} />
+  </label>
+  <label>to
+    <input
+      type="datetime-local"
+      value={props.to}
+      onChange={props.onToChange} />
+  </label>
+</form>
+```
+
+Don't forget to add the type checking for our props (from, to, onFromChange, onToChange)
+```
+EventDateSelector.propTypes = {
+  from: React.PropTypes.string,
+  to: React.PropTypes.string,
+  onFromChange: React.PropTypes.func,
+  onToChange: React.PropTypes.func,
+}
+```
 
