@@ -13,3 +13,6 @@ Step 2
 
 Step 3
 * [Stateless Functional Component](https://github.com/sysrep/time-viz/blob/master/Stateless_Functional_Component.md)
+
+Step 4
+* [More on Controlled Component](https://github.com/sysrep/time-viz/blob/master/More_On_Controlled_Component.md)
