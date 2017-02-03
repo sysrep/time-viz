@@ -125,6 +125,7 @@ const eventsInTimeRange = fiterEventsByTime(this.state.events, this.state.from, 
 And use the new const `eventsInTimeRange` for the map.
 ```
 <ul>
-  {eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}
+  {eventsInTimeRange.map(event =>  <Event event={event} key={event.id} /> )}
 </ul>
 ```
+Go to the browser to see the change of the application state in Developer console. The application state is used to filter the events by creating a new const using `this.state.from`  and `this.state.to`.
