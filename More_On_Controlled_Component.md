@@ -53,7 +53,6 @@ The fully-controlled component with two inputs.
   </label>
 </form>
 ```
-
 Don't forget to add the type checking for our props (from, to, onFromChange, onToChange)
 ```
 EventDateSelector.propTypes = {
