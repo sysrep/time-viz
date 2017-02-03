@@ -63,4 +63,33 @@ EventDateSelector.propTypes = {
   onToChange: React.PropTypes.func,
 }
 ```
+Our component is almost ready. I will import into `App.js`.
+```
+import { EventDateSelector } from './components/eventDateSelector'
+```
+In the constructor of our App, I will add two additional application states `from` and `to`.
+```
+constructor() {
+  super()
+  const now = new Date();
+  const yestarday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
+  this.state = {
+    events: [],
+    currentEventType: '',
+    from: yestarday,
+    to: now,
+  }
+}
+```
+I also add two methods, `handleOnFromChange()` and `handleOnToChange()` for our App.
+```
+handleOnFromChange = (event) => {
+  const newFromData = new Date(event.target.value)
+  this.setState({ from: newFromData });
+}
+handleOnToChange = (event) => {
+  const newEndDate = new Date(event.target.value)
+  this.setState({ to: newEndDate });
+}
+```  
 
