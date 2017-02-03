@@ -90,5 +90,14 @@ handleOnToChange = (event) => {
   const newEndDate = new Date(event.target.value)
   this.setState({ to: newEndDate });
 }
-```  
+```
+Then I add our `<EventDateSelector />` component into our `render()` method. Don't forget to attach the application states and also the two methods. (We are calling the `.toISOString().replace("Z","")` because the input has reuirments for the format of date.
+```
+<EventDateSelector
+  from={this.state.from.toISOString().replace("Z","")}
+  to={this.state.to.toISOString().replace("Z","")}
+  onFromChange={this.handleOnFromChange}
+  onToChange={this.handleOnToChange}
+/>
+```
 
