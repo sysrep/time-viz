@@ -12,8 +12,6 @@ I will duplicate the folder of eventTypeSelector and rename it as eventDateSelec
 
 ```
 export const EventDateSelector = (props) => (
-  <form>
-  </form>
 )
 ```
 
@@ -99,5 +97,21 @@ Then I add our `<EventDateSelector />` component into our `render()` method. Don
   onFromChange={this.handleOnFromChange}
   onToChange={this.handleOnToChange}
 />
+```
+So far, what we have create a controllered element. Just like what we did in section ["Controlled_Component"](https://github.com/sysrep/time-viz/blob/master/Controlled_Component.md). The next thing we want to do is to apply the application state to other components.
+
+I create a new file lib/filterEventsByTime.js and add the following code in it.
+```
+export const fiterEventsByTime = (events, from, to) => {
+  return events.filter((event)=> {
+    if (event.start < from.getTime()) {
+      return false;
+    }
+    if (event.start > to.getTime()) {
+      return false;
+    }
+    return true;
+  })
+}
 ```
 
