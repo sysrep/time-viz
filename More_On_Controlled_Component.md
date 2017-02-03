@@ -114,4 +114,17 @@ export const fiterEventsByTime = (events, from, to) => {
   })
 }
 ```
-
+Import the `fiterEventsByTime` function in our `App.js`
+```
+import { fiterEventsByTime } from './lib/fiterEventsByTime.js'
+```
+Create a const `eventsInTimeRange` at the beginning of `render()` method.
+```
+const eventsInTimeRange = fiterEventsByTime(this.state.events, this.state.from, this.state.to);
+```
+And use the new const `eventsInTimeRange` for the map.
+```
+<ul>
+  {eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}
+</ul>
+```
