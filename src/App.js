@@ -1,36 +1,48 @@
 import React, { Component } from 'react';
 import './App.css';
 import { loadEvents } from './lib/loadEvents.js'
+import { fiterEventsByTime } from './lib/fiterEventsByTime.js'
 import { Event }  from './components/event'
-import { EventTypeSelector } from './components/eventTypeSelector'
+import { EventDateSelector } from './components/eventDateSelector'
 
 class App extends Component {
   constructor() {
     super()
+    const now = new Date();
+    const yestarday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
     this.state = {
       events: [],
       currentEventType: '',
+      from: yestarday,
+      to: now,
     }
   }
   componentDidMount() {
     loadEvents().then(events => this.setState({ events }))
   }
-  handleSelectionChange = (event) => {
-    this.setState({ currentEventType: event.target.value });
+  handleOnFromChange = (event) => {
+    const newFromData = new Date(event.target.value)
+    this.setState({ from: newFromData });
+  }
+  handleOnToChange = (event) => {
+    const newEndDate = new Date(event.target.value)
+    this.setState({ to: newEndDate });
   }
   render() {
+    const eventsInTimeRange = fiterEventsByTime(this.state.events, this.state.from, this.state.to);
     return (
       <div className="App">
         <div className="App-header">
           <span>MyTimeLine</span>
         </div>
-        <h2>Event Type</h2>
-        <EventTypeSelector
-          currentEventType={this.state.currentEventType}
-          handleSelectionChange={this.handleSelectionChange}
+        <EventDateSelector
+          from={this.state.from.toISOString().replace("Z","")}
+          to={this.state.to.toISOString().replace("Z","")}
+          onFromChange={this.handleOnFromChange}
+          onToChange={this.handleOnToChange}
         />
         <ul>
-          {this.state.events.map(event =>  <Event event={event} key={event.id}/> )}
+          {eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}
         </ul>
       </div>
     );
