@@ -129,3 +129,5 @@ And use the new const `eventsInTimeRange` for the map.
 </ul>
 ```
 Go to the browser to see the change of the application state in Developer console. The application state is used to filter the events by creating a new constant(a new list of events) using `this.state.from`  and `this.state.to`.
+
+Soure code in this [commit](https://github.com/sysrep/time-viz/commit/4de9e2deb9fba1eadafe69116865bd4e8604f350)
