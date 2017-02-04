@@ -86,5 +86,5 @@ New tweak applies on `.eventDateSelectorContainer` as well.
 
 ## TASK
 
-Try new CSS styles, for exmaple, edit `background`, `width` or `border-radius` in `.eventPoint` CSS class to see how it changes.
-
+* Try new CSS styles, for exmaple, edit `background`, `width` or `border-radius` in `.eventPoint` CSS class to see how it changes.
+* Make a vertical timeline instead of horizontal one we have.
