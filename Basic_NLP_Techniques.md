@@ -49,3 +49,44 @@ Run the script by:
 ```
 babel-node --presets latest nlpHelpers.js
 ```
+
+Test one of the helper `getSentences()`. This function will return all sentences in the paragrpah.
+```
+console.log(getSentences(t))
+```
+will print an Array of sentences.
+```
+[ 'The name Suomi Finnish for Finland has uncertain origins, but a candidate for a source is the ProtoBaltic word źemē, meaning land',
+  ' In addition to the close relatives of Finnish the Finnic languages, this name is also used in the Baltic languages Latvian and Lithuanian', ...]
+```
+This is useful if we want separate sentences in a paragraph.
+
+Another useful helper that combines a serires of helper is the `getTokensWithOutNumbersAndStopWords()`
+```
+export const getTokensWithOutNumbersAndStopWords = (textContent) => {
+  const noNumbers = removeNumbers(textContent)
+  const tokenizer = new natural.WordTokenizer();
+  const tokens = tokenizer.tokenize(noNumbers);
+  const tokensInLowerCase = toLowerCase(tokens);
+  const singularizedTokens = getSingularizedWord(tokensInLowerCase);
+  return arrayDiff(singularizedTokens, stopwords.english);
+}
+```
+As its name suggested, it will first use `removeNumbers()` to remove all numbers in the text and store the new text content in a new constant `noNumbers`.
+```
+const noNumbers = removeNumbers(textContent)
+```
+Second, "tokenize" into an Array of text tokens by using [natural](https://github.com/NaturalNode/natural).
+```
+const tokenizer = new natural.WordTokenizer();
+const tokens = tokenizer.tokenize(noNumbers);
+```
+The third step is to decapitalize and singularize all text tokens.
+```
+const tokensInLowerCase = toLowerCase(tokens);
+const singularizedTokens = getSingularizedWord(tokensInLowerCase);
+```
+The final step is to remove all stopwords ([What's stopwords?](https://en.wikipedia.org/wiki/Stop_words)) from the text tokens array and return the array.
+```
+return arrayDiff(singularizedTokens, stopwords.english)
+```
