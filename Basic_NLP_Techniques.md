@@ -27,7 +27,7 @@ yarn add natural stopwords --save
 At the root of your project,
 ```
 cd lib
-touch nlpHelper.js
+touch nlpHelpers.js
 ```
 and copy/paste all the content in this [commit](https://github.com/sysrep/time-viz/blob/522a0df78408b6953fef11e8d6bf13aeedd00890/src/lib/nlpHelpers.js)
 
@@ -90,3 +90,11 @@ The final step is to remove all stopwords ([What's stopwords?](https://en.wikipe
 ```
 return arrayDiff(singularizedTokens, stopwords.english)
 ```
+
+The `getTokensWithOutNumbersAndStopWords()` is useful because the function takes a stream of text and breaks up into words. The list of tokens becomes input for further processing such as parsing or text mining. 
+
+For example, we could combine `getFrequentWords()` and `getTokensWithOutNumbersAndStopWords()` and have a list of tokens ranked by their frequescies in the text body. (Try it by `console.log(getFrequentWords(getTokensWithOutNumbersAndStopWords(t)))`)
+
+## TASK
+
+[natural](https://github.com/NaturalNode/natural) has many APIs, try build your own NLP helpers with your preferences.
