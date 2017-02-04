@@ -16,3 +16,6 @@ Step 3
 
 Step 4
 * [More on Controlled Component](https://github.com/sysrep/time-viz/blob/master/More_On_Controlled_Component.md)
+
+Step 5
+* [Setting Up Our Timeline](https://github.com/sysrep/time-viz/blob/master/Setting_Up_Our_Timeline.md)
