@@ -82,4 +82,9 @@ New tweak applies on `.eventDateSelectorContainer` as well.
 }
 ```
 
+[Source code for this step](https://github.com/sysrep/time-viz/commit/c7d91477a4234720488d7c537f6dee072acc0726).
+
+## TASK
+
+Try new CSS styles, for exmaple, edit `background`, `width` or `border-radius` in `.eventPoint` CSS class to see how it changes.
 
