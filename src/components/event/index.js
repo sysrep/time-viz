@@ -1,7 +1,15 @@
 import React from 'react'
+import './style.css';
+import { getTimeInPercentage } from '../../lib/getTimeInPercentage.js'
 
 export const Event = (props) => (
-  <li>{props.event.targettedResource.title}</li>
+  <div
+    className="eventPoint"
+    style={{
+      left: `${getTimeInPercentage(props.event.start)}%`,
+    }}
+  >
+  </div>
 )
 
 Event.propTypes = {

@@ -1,0 +1,8 @@
+.eventPoint {
+  position: absolute;
+  top: 20vh;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 5vh;
+  background: rgba(0, 0, 0, 0.2);
+}

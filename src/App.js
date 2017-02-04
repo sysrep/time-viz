@@ -32,18 +32,17 @@ class App extends Component {
     const eventsInTimeRange = fiterEventsByTime(this.state.events, this.state.from, this.state.to);
     return (
       <div className="App">
-        <div className="App-header">
-          <span>MyTimeLine</span>
-        </div>
-        <EventDateSelector
-          from={this.state.from.toISOString().replace("Z","")}
-          to={this.state.to.toISOString().replace("Z","")}
-          onFromChange={this.handleOnFromChange}
-          onToChange={this.handleOnToChange}
-        />
-        <ul>
+        <div className="timelineContainer">
           {eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}
-        </ul>
+        </div>
+        <div className="eventDateSelectorContainer">
+          <EventDateSelector
+            from={this.state.from.toISOString().replace("Z","")}
+            to={this.state.to.toISOString().replace("Z","")}
+            onFromChange={this.handleOnFromChange}
+            onToChange={this.handleOnToChange}
+          />
+        </div>
       </div>
     );
   }
