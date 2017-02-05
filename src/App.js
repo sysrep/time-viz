@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { loadEvents } from './lib/loadEvents.js'
 import { fiterEventsByTime } from './lib/fiterEventsByTime.js'
+import { getSentimentOfEvent,  getEmotionOfEvent } from './lib/getSentiment';
+import { getRandomSubarray } from './lib/getRandomSubarray';
 import { Event }  from './components/event'
 import { EventDateSelector } from './components/eventDateSelector'
 
@@ -12,13 +14,26 @@ class App extends Component {
     const yestarday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
     this.state = {
       events: [],
+      sentimentOfEvents: [],
+      emotionOfEvents: [],
       currentEventType: '',
       from: yestarday,
       to: now,
     }
   }
   componentDidMount() {
-    loadEvents().then(events => this.setState({ events }))
+    loadEvents().then(events => {
+      const randomSample = getRandomSubarray(events, 2)
+      this.setState({ events: randomSample })
+      getSentimentOfEvent(randomSample).then(respond => {
+        const { results } = JSON.parse(respond)
+        this.setState({ sentimentOfEvents: results })
+      })
+      getEmotionOfEvent(randomSample).then(respond => {
+        const { results } = JSON.parse(respond)
+        this.setState({ emotionOfEvents: results })
+      })
+    })
   }
   handleOnFromChange = (event) => {
     const newFromData = new Date(event.target.value)
