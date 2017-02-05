@@ -35,17 +35,63 @@ export const getStringRepresentEvent = (eventsArray) => {
 }
 ```
 To make our code clean and easier to read, I create yet another new service `getSentiment.js` in `./lib` that is a composite function of `getStringRepresentEvent()` and  `sentiment()` in `lib/indico.js`.
-
-
 I will import `getStringRepresentEvent()` from `./lib/getStringRepresentEvent.js` and  `sentiment()` from `lib/indico.js`.
 ```
 import { sentiment } from './indico';
 import { getStringRepresentEvent } from './getStringRepresentEvent';
 ```
-Combine two imported function into ` getSentimentOfEvent`.
+Combine two imported functions into the new ` getSentimentOfEvent()`.
 ```
 export const = (eventsArray) => {
   return sentiment(getStringRepresentEvent(eventsArray))
 }
 
 ```
+And import `getSentimentOfEvent` in `App.js`.
+```
+import { getSentimentOfEvent } from './lib/getSentiment';
+```
+To save the result of sentiment analyisis of my events. I will add a new key in our application state (in the `constructor()` of `App` compoment).
+```
+constructor() {
+  ...
+  this.state = {
+    ...
+    sentimentOfEvents: [],
+    ...
+  }
+}
+```
+We will call `getSentimentOfEvent()` in `componentDidMount()`. The `getSentimentOfEvent()` should be called after we received the events data from DiMe. I will add `getSentimentOfEvent()` in after `loadEvents()` has been resolved.
+```
+componentDidMount() {
+  loadEvents().then(events => {
+    const randomSample = getRandomSubarray(events, 10)
+    this.setState({ events: randomSample })
+    getSentimentOfEvent(randomSample).then(respond => {
+      const { results } = JSON.parse(respond)
+      this.setState({ sentimentOfEvents: results })
+    })
+  })
+}
+```
+Note that there is an additional function `getRandomSubarray()`. It's because I have limited (10,000 for free) API requested per month. I don't want to use it all in an API call so I create a sampler function that will randomly select (in this exmaple, 10) events as a subarray. You can add this sampler function as `lib/getRandomSubarray.js` and import into `App.js`.
+```
+export const getRandomSubarray = (arr, size) => {
+    let shuffled = arr.slice(0)
+    let i = arr.length
+    while (i--) {
+        let index = Math.floor((i + 1) * Math.random());
+        let temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+```
+Go to the browser and see our application state in React Dev panel. There should be a new key `sentimentOfEvents` storing the results of analysis by using the external ML service [indico.co](https://indico.io).
+
+## TASK
+Create another function calling a API on [indico.co](https://indico.io). See list of avaialbe APIs [here](https://indico.io/docs#text)
+
+The source code (including the answer of the TASK) in this [commit](https://github.com/sysrep/time-viz/commit/19af5bd4d9e90fc9ee8280a4bee0daec34edb7e0))
