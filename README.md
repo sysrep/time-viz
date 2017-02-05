@@ -22,3 +22,4 @@ Step 5
 
 Step 6
 * [Basic NLP Techniques](https://github.com/sysrep/time-viz/blob/master/Basic_NLP_Techniques.md)
+* [Use External ML Service](https://github.com/sysrep/time-viz/blob/master/Use_External_ML_Service.md)
