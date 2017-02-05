@@ -18,7 +18,7 @@ Step 4
 * [More on Controlled Component](https://github.com/sysrep/time-viz/blob/master/More_On_Controlled_Component.md)
 
 Step 5
-* [Setting Up Our Timeline](https://github.com/sysrep/time-viz/blob/master/Setting_Up_Our_Timeline.md)
+* [Setting Up Timeline](https://github.com/sysrep/time-viz/blob/master/Setting_Up_Timeline.md)
 
 Step 6
 * [Basic NLP Techniques](https://github.com/sysrep/time-viz/blob/master/Basic_NLP_Techniques.md)
