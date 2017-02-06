@@ -1,4 +1,4 @@
-I have hundreds of events on my timeline. I want to get "features" from each of the event. If I have feaures of these events, I can desgin different representaions based on their features.
+I have hundreds of events on my timeline. I want to get "features" from each of the events. If I have features of these events, I can design different representations based on their features.
 
 Since most of the data in DiMe are texts. We will learn how to apply Natural Language Processing (NLP) techniques to our data.
 
@@ -36,13 +36,13 @@ Let's take a paragraph of text from <https://en.wikipedia.org/wiki/Finland> and 
 The text from Wikipedia
 >'The name Suomi (Finnish for "Finland") has uncertain origins, but a candidate for a source is the Proto-Baltic word *źemē, meaning "land". In addition to the close relatives of Finnish (the Finnic languages), this name is also used in the Baltic languages Latvian and Lithuanian. Alternatively, the Indo-European word *gʰm-on "man" (cf. Gothic guma, Latin homo) has been suggested, being borrowed as *ćoma. The word originally referred only to the province of Finland Proper, and later to the northern coast of Gulf of Finland, with northern regions such as Ostrobothnia still sometimes being excluded until later. Earlier theories suggested derivation from suomaa (fen land) or suoniemi (fen cape), and parallels between saame (Sami, a Finno-Ugric people in Lapland), and Häme (a province in the inland) were drawn, but these theories are now considered outdated.[24]'
 
-The text is writeen by a wikipedia contributor, I want to test our NLP helpers on it.
+The text is written by a Wikipedia contributor, I want to test our NLP helpers on it.
 
-Install `babel-cli` and `babel-preset-latest` then we can work in terminal.
+Install `babel-cli` and `babel-preset-latest` then we can work in the terminal.
 ```
 npm install -g babel-preset-latest babel-cli
 ```
-Add a contant "t"(or whatever name you prefer) in the `nlpHelpers.js` and assign the text to the constant. I use `console.log` to print our content in the terminal.
+Add a constant "t"(or whatever name you prefer) in the `nlpHelpers.js` and assign the text to the constant. I use `console.log` to print our content in the terminal.
 ```
 const t = [text above]
 console.log(t)
@@ -52,7 +52,7 @@ Run the script by:
 babel-node --presets latest nlpHelpers.js
 ```
 
-Test one of the helper `getSentences()`. This function will return all sentences in the paragrpah.
+Test one of the helper `getSentences()`. This function will return all sentences in the paragraph.
 ```
 console.log(getSentences(t))
 ```
