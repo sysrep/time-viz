@@ -1,10 +1,10 @@
-The dropdown menu we created in section ["Controlled_Component"](https://github.com/sysrep/time-viz/blob/master/Controlled_Component.md) is surely a controlled component. It could mutate the application states via user interactions (click on the dropdown meanu and change its value). We could see changes on the UI accordingly (it is possible to "see" the value of dropdown menu when it changed.)
+The drop-down menu we created in section ["Controlled_Component"](https://github.com/sysrep/time-viz/blob/master/Controlled_Component.md) is surely a controlled component. It could mutate the application states via user interactions (click on the drop-down menu and change its value). We could see changes on the UI accordingly (it is possible to "see" the value of dropdown menu when it changed.)
 
 see the mutation of application states in the React tab, Chrome developer console.
 
-However, is it possbile to use this application state (this.state.eventType) that it mutated and change other part of UI? What I want to do is to filter the list of events based on the "eventType". If user selects an eventType in the dropdown meanu, the only events rendered on our UI should be matched the "eventType".
+However, is it possible to use this application state (this.state.eventType) that it mutated and change another part of UI? What I want to do is to filter the list of events based on the "eventType". If the user selects an eventType in the drop-down menu, the only events rendered on our UI should be matched the "eventType".
 
-Let's look at the this.state.events to see what event types we have. There seems to be a "type" in the fisrt event object. However, all events in this list seems to have all the same "type". It is impossilbe to fiter events by type if all events have the same "type".
+Let's look at this.state.events to see what event types we have. There seems to be a "type" in the first event object. However, all events in this list seem to have all the same "type". It is impossible to filter events by type if all events have the same "type".
 
 We see another key in the event object. There is a "start" key in the object. This is the timestamp of events. If we want to filter events by a key. Filtering timestamps will be useful since we are creating a timeline.
 
@@ -15,7 +15,7 @@ export const EventDateSelector = (props) => (
 )
 ```
 
-I will use a HTML5 input element with the type "datatime-local" here. We want a range of time so there should be a "from" input element (with a label "from").
+I will use an HTML5 input element with the type "datatime-local" here. We want a range of time so there should be a "from" input element (with a label "from").
 
 ```
 <label>from
@@ -32,7 +32,7 @@ And also the "to" input with a label.
   />
 </label>
 ```
-I want the our `EventDateSelect` to be a controlled component. I will link the `props` to the value of the input. I also add a listener on the element so if the value changes we will mutate the application states accordingly.
+I want our `EventDateSelect` to be a controlled component. I will link the `props` to the value of the input. I also add a listener on the element so if the value changes we will mutate the application states accordingly.
 
 The fully-controlled component with two inputs.
 ```
@@ -130,4 +130,4 @@ And use the new const `eventsInTimeRange` for the map.
 ```
 Go to the browser to see the change of the application state in Developer console. The application state is used to filter the events by creating a new constant(a new list of events) using `this.state.from`  and `this.state.to`.
 
-Soure code in this [commit](https://github.com/sysrep/time-viz/commit/4de9e2deb9fba1eadafe69116865bd4e8604f350)
+Source code in this [commit](https://github.com/sysrep/time-viz/commit/4de9e2deb9fba1eadafe69116865bd4e8604f350)
