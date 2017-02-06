@@ -1,12 +1,23 @@
 .timelineContainer {
-  margin: 10px;
-  width: 98.5%;
-  height: 75vh;
-  background: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  position: absolute;
+  margin: 2%;
+  width: 95%;
+  height: 85vh;
+  background: rgba(0, 2, 35, 0.83);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.2);
+  border-right: 0.5px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.16);
   overflow: hidden;
 }
 
 .eventDateSelectorContainer {
-  margin: 10px 20px 0;
+  position: absolute;
+  top: 88vh;
+  margin: 25px 0 0;
+}
+
+.zoom {
+  position: absolute;
+  top: 91.5vh;
+  left: 36vw;
 }
