@@ -1,6 +1,6 @@
-We have created a timeline. It's a controlled component. We could mutate the application state and see it changed. However, it looks ugly. I want to improve the style of our timeline. I will add CSS classes on the element and transform it into a horizontal timeline.
+We have created a timeline. It's a controlled component. We could mutate the application state and see it changed. However, it looks ugly. I want to improve the style of our timeline. I will add CSS classes to the element and transform it into a horizontal timeline.
 
-To make it horizontal, I have wirtten a service function `getTimeByPercentage.js` in the `lib` that helps us to get time in the format of percentage. If an event has a timestamp "10:00" (in 24h format), the service function will return the timestamp in percentage, which equals 10/24 === 0.416 (41.6%).
+To make it horizontal, I have written a service function `getTimeByPercentage.js` in the `lib` that helps us to get time in the format of percentage. If an event has a timestamp "10:00" (in 24h format), the service function will return the timestamp in percentage, which equals 10/24 === 0.416 (41.6%).
 
 Add `getTimeInPercentage.js` in `lib` with the following content.
 ```
