@@ -122,3 +122,19 @@ I apply the same princple to other emotions elemnts. I am a lazy person, I don't
 ```
 const { joy, surprise, fear, anger, sadness } = props.emotion;
 ```
+And use them in all my emotion elements as `joy` instead of `props.emotion.joy`.
+I was reading this article [Putting Some Emotion into Your Design – Plutchik’s Wheel of Emotions](https://www.interaction-design.org/literature/article/putting-some-emotion-into-your-design-plutchik-s-wheel-of-emotions) so I apply these color stamps in my CSS file `./components/event/style.css`.
+
+For exmaple, the backgorund color of anger element should be `rgba(217, 85, 151, 1.0)`.
+```
+.anger {
+  background: rgba(217, 85, 151, 1.0);
+}
+```
+from this color wheel (<https://public-media.interaction-design.org/images/uploads/70cb81fe1b87d2703d5c2f127841efad.jpg>
+
+In addition, by reading the article, I learn that the emotion of "anticipation" is located between "anger" and "joy" in the color wheel. I make an assumation that the value of "anticipation" equals the avarage value of "anger" plus "joy" (anticipation = (anger+joy)/2). The result of this assumpation is that I have more catogries of emotion that have values could be applied on my design.
+
+To give users more control of my time. I add a zoom function and a range controller that can adjust the resolution of the bar.
+
+To improve the outlook the elements in
