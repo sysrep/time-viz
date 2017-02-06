@@ -1,14 +1,14 @@
-The events in this app are hard coded into the app's initial state and any changes are maintained in memory and lost when the application reloads. Let's integrate a DiMe API for our events so we can get data from DiMe when app is loaded.
+The events in this app are hard coded into the app's initial state and any changes are maintained in memory and lost when the application reloads. Let's integrate a DiMe API for our events so we can get data from DiMe when the app is loaded.
 
-I will create a "service" that help me to load events from DiMe. First, add a new folder `lib` and creat a js `loadEvent.js` in the folder.
+I will create a "service" that help me to load events from DiMe. First, add a new folder `lib` and create a js `loadEvent.js` in the folder.
 
-In `loadEvent.js`, I'm going to start with a constant. The first thing I want to do with this API is use it to load the events into the application when the application starts. I search in the WiKi of DiMe and find the [API Doc](https://github.com/HIIT/dime-server/wiki/API)
+In `loadEvent.js`, I'm going to start with a constant. The first thing I want to do with this API to load the events into the application when the application starts. I search in the WiKi of DiMe and find the [API Doc](https://github.com/HIIT/dime-server/wiki/API)
 
 I want all events at the same time, according to the [API Doc](http://www.hiit.fi/g/reknow/apidoc/dime-server/#api-Events-GetAll), I should call GET on <http://localhost:8080/api/data/events>
 
-The const url has the corret value (the API endpoint of DiMe events).
+The const URL has the correct value (the API endpoint of DiMe events).
 ```
-const url = 'http://localhost:8080/api/data/events'
+const URL = 'http://localhost:8080/api/data/events'
 ```
 
 When we call the DiMe API, We need username and password. Let's do it by adding a new const `option` when calling fetch.
