@@ -1,6 +1,6 @@
-I have all the data I need. It's time to design visual elements which represent the results of data analyisis.
+I have all the data I need. It's time to design visual elements which represent the results of data analysis.
 
-I will inject the application states, the two array contains the data, `this.state.sentimentOfEvents` and `this.state.emotionOfEvents`, into my `<Event />` component. Note that I am using the second parameter of `.map()` to make sure I assign the corret value of sentiment and emotion.
+I will inject the application states, the two array contains the data, `this.state.sentimentOfEvents` and `this.state.emotionOfEvents`, into my `<Event />` component. Note that I am using the second parameter of `.map()` to make sure I assign the correct value of sentiment and emotion.
 
 ```
 {eventsInTimeRange.map((event, index) =>  {
@@ -15,7 +15,7 @@ I will inject the application states, the two array contains the data, `this.sta
 })}
 ```
 
-Open `./lib/event/index.js`, add two extra props that have been injected. The type of sentiment should be number and the type of emotion should an object.
+Open `./lib/event/index.js`, add two extra props that have been injected. The type of sentiment should be a number and the type of emotion should an object.
 
 ```
 Event.propTypes = {
@@ -28,9 +28,9 @@ Event.propTypes = {
 
 Let's remove the original code `{eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}`, and think how we arw going to use `props.emotion` and `props.sentiment` in `<Event />`
 
-I want to use vertical positioning to represent the value of `props.sentiment`. The higher the `props.sentiment`, the hight our event. The value of `props.sentiment` related to the positive emotion of the text context in the event. The more postive the text should have higher vertical positions in the timeline. My appraoch seems to make sense.
+I want to use vertical positioning to represent the value of `props.sentiment`. The higher the `props.sentiment`, the height our event. The value of `props.sentiment` related to the positive emotion of the text context in the event. The more positive the text should have higher vertical positions in the timeline. My approach seems to make sense.
 
-Since I am using the CSS "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" to apply visual style on my element. And by reading the definition of "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" in w3schools. I know that the "top" is the distance to the top edge of the elemnt's nearest positioned ancestor. (In our case is the distance to the edge of timelineContainer). I create a new constant `negativeness` and assing its value to "(1 - sentiment)"
+Since I am using the CSS "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" to apply visual style on my element. And by reading the definition of "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" in w3schools. I know that the "top" is the distance to the top edge of the element's nearest positioned ancestor. (In our case is the distance to the edge of timelineContainer). I create a new constant `negativeness` and assign its value to "(1 - sentiment)"
 
 ```
 const { sentiment } = props;
@@ -59,7 +59,7 @@ I have one additional props, the `props.emotion` which is an object has the valu
   "surprise": 0.0231916048
 }
 ```
-I want to use these values of emotions as well. It will be more intersting. Instead of using a dot/circle shape representing my events. What a about replacing the circle with a bar that is composed by elements representing different emotions?
+I want to use these values of emotions as well. It will be more interesting. Instead of using a dot/circle shape representing my events. What about replacing the circle with a bar that is composed by elements representing different emotions?
 
 I add a wrapper element, the "barContainer" `<div className="barContainer"></div>` in the "eventContainer" `<div className="eventContainer">...</div>`. In addition, I add more "emotion" `<div></div>` inside the parent "barContainer" `<div className="barContainer"></div>`, each of the "emotion" `<div></div>` represent one kind of emotion. For example, "angry". In the "emotion" `<div></div>`. I apply CSS style "height" which equals to the value of the emotion (e.g. props.emotion.angry). I also move the "top" from the the "eventContainer" `<div className="eventContainer">...</div>` and apply the "top" on the "emotion" `<div></div>` instead.
 
@@ -133,7 +133,7 @@ For exmaple, the backgorund color of anger element should be `rgba(217, 85, 151,
 ```
 from this color wheel (<https://public-media.interaction-design.org/images/uploads/70cb81fe1b87d2703d5c2f127841efad.jpg>
 
-In addition, by reading the article, I learn that the emotion of "anticipation" is located between "anger" and "joy" in the color wheel. I make an assumation that the value of "anticipation" equals the avarage value of "anger" plus "joy" (anticipation = (anger+joy)/2). The result of this assumpation is that I have more catogries of emotion that have values could be applied on my design.
+In addition, by reading the article, I learn that the emotion of "anticipation" is located between "anger" and "joy" on the color wheel. I make an assumption that the value of "anticipation" equals the average value of "anger" plus "joy" (anticipation = (anger+joy)/2). The result of this assumption is that I have more categories of emotion that have values could be applied to my design.
 
 To give users more control of my time. I add a zoom function and a range controller that can adjust the resolution of the bar.
 
