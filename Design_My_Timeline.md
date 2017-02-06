@@ -48,3 +48,25 @@ I will then assign the value of negativeness to CSS "top" and test if the result
 </div>
 ```
 If it doesn't work, I will look into its nearest element the `timelineContainer` and add `position: absolute;` in its CSS class.
+
+I have one additional props, the `props.emotion` which is an object has the value of different emotions.
+```
+{
+  "anger": 0.11695790290000001,
+  "joy": 0.5528126955,
+  "fear": 0.2042851001,
+  "sadness": 0.102752775,
+  "surprise": 0.0231916048
+}
+```
+I want to use these values of emotions as well. It will be more intersting. Instead of using a dot/circle shape representing my events. What a about replacing the circle with a bar that is composed by elements representing different emotions?
+```
+<div
+  className="eventPointContainer"
+  style={{
+    left: `${getTimeInPercentage(props.event.start)}%`,
+    top: `${negativeness}%`,
+  }}
+>
+</div>
+```
