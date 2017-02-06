@@ -6,7 +6,7 @@ In the "event" directory, I'm going to create a new file and I'm going to call t
 import React from 'react'
 ```
 
-Instead of creating a class that extends component like an App.js, we can define this component as a plain JavaScript function. I'm going to declare constant call event and I'll just define this as an arrow function, and our return value will go inside these parenthesis. Our return value is going to be the JSX for a event element.
+Instead of creating a class that extends component like an App.js, we can define this component as a plain JavaScript function. I'm going to declare constant call event and I'll just define this as an arrow function, and our return value will go inside this parenthesis. Our return value is going to be the JSX for an event element.
 
 let's cut that out of `App.js`
 ```
@@ -42,9 +42,9 @@ Add also in `App`. Add event props on `<Event />`
 </ul>
 ```
 
-This `<Event />` component represents a event that we can use to create new event items. In order for it to function properly, it receives a prop that is a javascript object contains the data of an event. If another member of our team wanted to use this component in another part of the application we'd like to be able to ensure they are passing in the correct props. Luckily, React has a mechanism for validating our component input called prop types. The first step in defining prop types for a component is to reference that component and call its prop types property.
+This `<Event />` component represents an event that we can use to create new event items. In order for it to function properly, it receives a prop that is a javascript object contains the data of an event. If another member of our team wanted to use this component in another part of the application we'd like to be able to ensure they are passing in the correct props. Luckily, React has a mechanism for validating our component input called prop types. The first step in defining prop types for a component is to reference that component and call its prop types property.
 
-I'll start with current `<Event />` component. We want to specify the `<Event />` component should be an object. We'll do that by calling `react.proptypes.string`. It's important to note when we're referencing prop types off of React to pick the type for our property we want to make sure we use the prop types here with a capital P. (see list of [React PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)).
+I'll start with current `<Event />` component. We want to specify the `<Event />` component should be an object. We'll do that by calling `react.proptypes.string`. It's important to note when we're referencing prop types off of React to pick the type of our property we want to make sure we use the prop types here with a capital P. (see the list of [React PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)).
 
 ```
 Event.propTypes = {
@@ -55,6 +55,6 @@ Source code in this [commit](https://github.com/sysrep/time-viz/commit/46a8c3132
 
 ##TASK
 
-The next thing I will do is to make a stateless functional component for our dropdown menu (I want it a name as `<EventTypeSelector />`). I will follow the same steps in this tutorial. I suggest you to try this task by your self. The answer is in this [commit](https://github.com/sysrep/time-viz/commit/7e078eb506925a47d8748b7dc224c2f7677d6a6c).
+The next thing I will do is to make a stateless functional component for our dropdown menu (I want it a name as `<EventTypeSelector />`). I will follow the same steps in this tutorial. I suggest you try this task by yourself. The answer is in this [commit](https://github.com/sysrep/time-viz/commit/7e078eb506925a47d8748b7dc224c2f7677d6a6c).
 
 
