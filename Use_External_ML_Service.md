@@ -1,4 +1,4 @@
-In previous section, we learned NLP methods that can apply on the text in our events. I want more analytical results, for example, I am interested in [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis). I want to know the sentiment of the text in my events.
+In the previous section, we learned NLP methods that can apply to the text in our events. I want more analytical results, for example, I am interested in [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis). I want to know the sentiment of the text in my events.
 
 We will use an external machine-learning service [indico.co](https://indico.io/), which has powerful machine learning APIs.
 
@@ -6,11 +6,11 @@ Create your indico account on [indico.co](https://indico.io) and apply for free 
 
 After reading the [dev-doc](https://indico.io/docs), I decided to use two APIs under "Text Analysis", the [Sentiment Analysis](https://indico.io/docs#sentiment) API and [Emotion](https://indico.io/docs#emotion) API seems to be fun to play with.
 
-In the [dev-doc](https://indico.io/docs), they use jQuery as the exmaple libraray, so I will install jQuery first by
+In the [dev-doc](https://indico.io/docs), they use jQuery as the example library, so I will install jQuery first by
 ```
 yarn add jquery --save
 ```
-I `cd` into `./lib`, create a new js file with the name `idico.js` (by `touch idico.js`). This is a new service that make API calls to indico's API endpoints. In `idico.js`, I import jQuery, copy the example on indico's document, and edit the example code according to our needs.
+I `cd` into `./lib`, create a new js file with the name `idico.js` (by `touch idico.js`). This is a new service that makes API calls to indico's API endpoints. In `idico.js`, I import jQuery, copy the example on indico's document, and edit the example code according to our needs.
 ```
 export const sentiment = (textArray) => {
   return $.post(
@@ -24,9 +24,9 @@ export const sentiment = (textArray) => {
 ```
 The `sentiment` function will receive a `textArray`, "POST" it to the API endpoints of indico with the url <https://apiv2.indico.io/sentiment/batch> and your API_key, and return a promise (What's a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)).
 
-It seems that <https://apiv2.indico.io/sentiment/batch> endpoint only allows a array of text as data input. I need to reformat the event before into text array.
+It seems that <https://apiv2.indico.io/sentiment/batch> endpoint only allows an array of text as data input. I need to reformat the event before into text array.
 
-I create a new service `getStringRepresentEvent` in `./lib`. This function will accept an array of event, return a array of strings, representing the event. The string is composed by the tags in the event. 
+I create a new service `getStringRepresentEvent` in `./lib`. This function will accept an array of an event, return an array of strings, representing the event. The string is composed by the tags in the event. 
 ```
 export const getStringRepresentEvent = (eventsArray) => {
   return eventsArray.map((event) => {
@@ -94,4 +94,4 @@ Go to the browser and see our application state in React Dev panel. There should
 ## TASK
 Create another function calling a API on [indico.co](https://indico.io). See list of avaialbe APIs [here](https://indico.io/docs#text)
 
-The source code (including the answer of the TASK) in this [commit](https://github.com/sysrep/time-viz/commit/19af5bd4d9e90fc9ee8280a4bee0daec34edb7e0))
+The source code (including the answer to the TASK) in this [commit](https://github.com/sysrep/time-viz/commit/19af5bd4d9e90fc9ee8280a4bee0daec34edb7e0))
