@@ -1,7 +1,7 @@
 # time-viz
 build a timeline visualization using your digital footprint.
 
-![img](https://github.com/sysrep/time-viz/raw/master/timeline.gif)
+<img height="250" width="1000" src="https://github.com/sysrep/time-viz/raw/master/timeline.gif">
 
 Step 0
 * [Get Ready](https://github.com/sysrep/time-viz/blob/master/Get_Ready.md)
