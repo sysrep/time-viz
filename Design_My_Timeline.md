@@ -1,4 +1,4 @@
-I have the all the data I need. It's time to design visual elements which represent the results of data analyisis.
+I have all the data I need. It's time to design visual elements which represent the results of data analyisis.
 
 I will inject the application states, the two array contains the data, `this.state.sentimentOfEvents` and `this.state.emotionOfEvents`, into my `<Event />` component. Note that I am using the second parameter of `.map()` to make sure I assign the corret value of sentiment and emotion.
 
@@ -60,6 +60,9 @@ I have one additional props, the `props.emotion` which is an object has the valu
 }
 ```
 I want to use these values of emotions as well. It will be more intersting. Instead of using a dot/circle shape representing my events. What a about replacing the circle with a bar that is composed by elements representing different emotions?
+
+I add a wrapper element, the "barContainer" `<div className="barContainer"></div>` in the "eventContainer" `<div className="eventContainer">...</div>`. In addition, I add more "emotion" `<div></div>` inside the parent "barContainer" `<div className="barContainer"></div>`, each of the "emotion" `<div></div>` represent one kind of emotion. For example, "angry". In the "emotion" `<div></div>`. I apply CSS style "height" which equals to the value of the emotion (e.g. props.emotion.angry). I also move the "top" from the the "eventContainer" `<div className="eventContainer">...</div>` and apply the "top" on the "emotion" `<div></div>` instead.
+
 ```
 <div
   className="eventPointContainer"
@@ -68,5 +71,54 @@ I want to use these values of emotions as well. It will be more intersting. Inst
     top: `${negativeness}%`,
   }}
 >
+  <div
+    className="barContainer"
+  >
+   <div
+      className="anger"
+      style={{
+        top: `${negativeness}%`,
+        height: `${props.emotion.anger}%`,
+      }}
+    >
+    </div>
+    [...other emotions]
+  </div>
 </div>
+```
+The second element in this bar should be the emotion of "joy". I think "top" CSS style should equal to value "top" and "height" in previous emotion element (the "angry").
+```
+<div
+  className="eventPointContainer"
+  style={{
+    left: `${getTimeInPercentage(props.event.start)}%`,
+    top: `${negativeness}%`,
+  }}
+>
+  <div
+    className="barContainer"
+  >
+   <div
+      className="anger"
+      style={{
+        top: `${negativeness}%`,
+        height: `${props.emotion.anger}%`,
+      }}
+    >
+    </div>
+    <div
+      className="joy"
+      style={{
+        top: `${negativeness+props.emotion.anger}%`,
+        height: `${props.joy}%`,
+      }}
+    >
+    </div>
+    [...other emotions]
+  </div>
+</div>
+```
+I apply the same princple to other emotions elemnts. I am a lazy person, I don't want to type `props.emotion` when I need to sue `props.emotion.[emotion]` so I create new constants.
+```
+const { joy, surprise, fear, anger, sadness } = props.emotion;
 ```
