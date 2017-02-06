@@ -1,8 +1,61 @@
+.eventPointContainer {
+  position: absolute;
+  height: 100%;
+}
+
 .eventPoint {
   position: absolute;
-  top: 20vh;
-  height: 5vh;
-  width: 5vh;
-  border-radius: 5vh;
-  background: rgba(0, 0, 0, 0.2);
+  top: 50%;
+  height: 15vh;
+  width: 10vh;
+  border-radius: 8vh;
+  filter: blur(10px);
+  background: rgba(0, 5, 25, 0.018);
+}
+
+.anger, .anticipation, .joy, .trust, .fear, .surprise, .sadness, .disgust {
+  position: absolute;
+  top: 50%;
+  height: 2vh;
+  width: 2vh;
+  border-radius: 0;
+}
+
+.anger {
+  background: rgba(217, 85, 151, 1.0);
+}
+
+.anticipation {
+  background: rgba(253, 206, 132, 1.0);
+}
+
+.joy {
+  background: rgba(240, 228, 65, 1.0);
+}
+
+.trust {
+  background: rgba(216, 218, 76, 1.0);
+}
+
+.fear {
+  background: rgba(185, 210, 116, 1.0);
+}
+
+.surprise {
+  background: rgba(133, 196, 160, 1.0);
+}
+
+.sadness {
+  background: rgba(114, 201, 241, 1.0);
+}
+
+.disgust {
+  background: rgba(173, 115, 171, 1.0);
+}
+
+.barShadow {
+  position: absolute;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+  background: white;
+  width: 2vh;
 }
