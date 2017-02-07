@@ -15,7 +15,7 @@
 # Start!
 * I prefer the Atom editor <https://atom.io/>
 * cd to your project folder
-* `yarnpkg start`
+* `npm start`
 * open <http://localhost:3000> in Chrome. You should see a "Welcome to React" screen.
 * open your project folder in Atom
 * try edit `src/App.js` (e.g. replace the string "welcome to react" to something else) to see the changes
