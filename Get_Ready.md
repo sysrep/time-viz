@@ -5,7 +5,7 @@
 * `create-react-app .`
 
 # Configure DiMe for Development
-* `cd ~./dime`
+* `cd ~./dime/bin`
 * `mkdir config`
 * `touch application-local.properties`
 * `open application-local.properties` and add a line `dime.corsAllowOrigin=http://localhost:3000,chrome-extension://[your-chrome-id]` (find your chrome extension id in <chrome://extensions/>. There should be a ID for a dime-webextension
