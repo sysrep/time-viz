@@ -8,7 +8,7 @@ I want all events at the same time, according to the [API Doc](http://www.hiit.f
 
 The const URL has the correct value (the API endpoint of DiMe events).
 ```
-const URL = 'http://localhost:8080/api/data/events'
+const url = 'http://localhost:8080/api/data/events'
 ```
 
 When we call the DiMe API, We need username and password. Let's do it by adding a new const `option` when calling fetch.
