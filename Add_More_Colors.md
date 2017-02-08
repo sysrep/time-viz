@@ -28,6 +28,6 @@ By applying my assumption, I have additional 4 categories (anticipation, trust, 
   "disguest": (anger+sadness)/2
 }
 ```
-I find the colors which reprent there new categories in anthor wheel.
+I find the colors which reprsent these new categories in anthor wheel.
 
 <img src="https://public-media.interaction-design.org/images/uploads/955c62c82771f57ce02cab0bd0a4bfae.jpg">
