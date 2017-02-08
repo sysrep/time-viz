@@ -1,6 +1,6 @@
 I have all the data I need. It's time to design visual elements which represent the results of data analysis.
 
-I will inject the application states, the two array contains the data, `this.state.sentimentOfEvents` and `this.state.emotionOfEvents`, into my `<Event />` component. Note that I am using the second parameter of `.map()` to make sure I assign the correct value of sentiment and emotion.
+I will inject the application states, the two array contains the data, `this.state.sentimentOfEvents` and `this.state.emotionOfEvents`, into my `<Event />` component. Note that I am using the second parameter(the `index`) of `.map()` to make sure I assign the correct value of `this.state.sentiment` and `this.state.emotion`.
 
 ```
 {eventsInTimeRange.map((event, index) =>  {
@@ -26,11 +26,15 @@ Event.propTypes = {
 }
 ```
 
-Let's remove the original code `{eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}`, and think how we arw going to use `props.emotion` and `props.sentiment` in `<Event />`
+Let's remove the original code `{eventsInTimeRange.map(event =>  <Event event={event} key={event.id}/> )}`, and start to think how we are going to use `props.emotion` and `props.sentiment` in `<Event />`
 
-I want to use vertical positioning to represent the value of `props.sentiment`. The higher the `props.sentiment`, the height our event. The value of `props.sentiment` related to the positive emotion of the text context in the event. The more positive the text should have higher vertical positions in the timeline. My approach seems to make sense.
+### Position
 
-Since I am using the CSS "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" to apply visual style on my element. And by reading the definition of "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" in w3schools. I know that the "top" is the distance to the top edge of the element's nearest positioned ancestor. (In our case is the distance to the edge of timelineContainer). I create a new constant `negativeness` and assign its value to "(1 - sentiment)"
+I want to use vertical positioning to represent the value of `props.sentiment`. The higher the `props.sentiment`, the height our event. The value of `props.sentiment` related to the positive emotion of the text context in the event. The more positive the text should have higher vertical positions in the timeline.
+
+Since I am using the CSS "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" to apply visual style on my element. And by reading the definition of "[top](http://www.w3schools.com/cssref/pr_pos_top.asp)" in w3schools. I know that the "top" is the distance to the top edge of the element's nearest positioned ancestor. (In our case is the distance to the edge of timelineContainer). 
+
+I create a new constant `negativeness` and assign its value to "(1 - sentiment)"
 
 ```
 const { sentiment } = props;
@@ -61,7 +65,11 @@ I have one additional props, the `props.emotion` which is an object has the valu
 ```
 I want to use these values of emotions as well. It will be more interesting. Instead of using a dot/circle shape representing my events. What about replacing the circle with a bar that is composed by elements representing different emotions?
 
-I add a wrapper element, the "barContainer" `<div className="barContainer"></div>` in the "eventContainer" `<div className="eventContainer">...</div>`. In addition, I add more "emotion" `<div></div>` inside the parent "barContainer" `<div className="barContainer"></div>`, each of the "emotion" `<div></div>` represent one kind of emotion. For example, "angry". In the "emotion" `<div></div>`. I apply CSS style "height" which equals to the value of the emotion (e.g. props.emotion.angry). I also move the "top" from the the "eventContainer" `<div className="eventContainer">...</div>` and apply the "top" on the "emotion" `<div></div>` instead.
+I add a wrapper element, the "barContainer" `<div className="barContainer"></div>` in the "eventContainer" `<div className="eventContainer">...</div>`. 
+
+In addition, I add more "emotion" `<div></div>` inside the parent "barContainer" `<div className="barContainer"></div>`, each of the "emotion" `<div></div>` represent one kind of emotion. 
+
+I apply CSS style "height" which equals to the value of the emotion (e.g. props.emotion.angry). I also move the "top" from the the "eventContainer" `<div className="eventContainer">...</div>` and apply the "top" on the "emotion" `<div></div>` instead.
 
 ```
 <div
@@ -86,7 +94,9 @@ I add a wrapper element, the "barContainer" `<div className="barContainer"></div
   </div>
 </div>
 ```
-The second element in this bar should be the emotion of "joy". I think "top" CSS style should equal to value "top" and "height" in previous emotion element (the "angry").
+
+The second element in this bar should be the emotion of "joy". I think the "top" CSS style should equal to value "top" and "height" in previous emotion element (the "angry"). I apply the same princple to other emotion elemnts in the `barContainer`. 
+
 ```
 <div
   className="eventPointContainer"
@@ -118,23 +128,20 @@ The second element in this bar should be the emotion of "joy". I think "top" CSS
   </div>
 </div>
 ```
-I apply the same princple to other emotions elemnts. I am a lazy person, I don't want to type `props.emotion` when I need to sue `props.emotion.[emotion]` so I create new constants.
+I am a lazy person, I don't want to type `props.emotion` when I need to sue `props.emotion.[emotion]` so I create new constants.
 ```
 const { joy, surprise, fear, anger, sadness } = props.emotion;
 ```
 And use them in all my emotion elements as `joy` instead of `props.emotion.joy`.
-I was reading this article [Putting Some Emotion into Your Design – Plutchik’s Wheel of Emotions](https://www.interaction-design.org/literature/article/putting-some-emotion-into-your-design-plutchik-s-wheel-of-emotions) so I apply these color stamps in my CSS file `./components/event/style.css`.
 
-For exmaple, the backgorund color of anger element should be `rgba(217, 85, 151, 1.0)`.
+### Colors
+
+I was reading this article [Putting Some Emotion into Your Design – Plutchik’s Wheel of Emotions](https://www.interaction-design.org/literature/article/putting-some-emotion-into-your-design-plutchik-s-wheel-of-emotions) so I try to apply these colors in my CSS file `./components/event/style.css`.
+
+For exmaple, the backgorund color of anger element should be `rgba(217, 85, 151, 1.0)`. (learn from this color wheel (<https://public-media.interaction-design.org/images/uploads/70cb81fe1b87d2703d5c2f127841efad.jpg>)
+
 ```
 .anger {
   background: rgba(217, 85, 151, 1.0);
 }
 ```
-from this color wheel (<https://public-media.interaction-design.org/images/uploads/70cb81fe1b87d2703d5c2f127841efad.jpg>
-
-In addition, by reading the article, I learn that the emotion of "anticipation" is located between "anger" and "joy" on the color wheel. I make an assumption that the value of "anticipation" equals the average value of "anger" plus "joy" (anticipation = (anger+joy)/2). The result of this assumption is that I have more categories of emotion that have values could be applied to my design.
-
-To give users more control of my time. I add a zoom function and a range controller that can adjust the resolution of the bar.
-
-To improve the outlook the elements in
