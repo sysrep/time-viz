@@ -28,3 +28,4 @@ Step 6
 
 Step 7
 * [Design My Timeline](https://github.com/sysrep/time-viz/blob/master/Design_My_Timeline.md)
+* [Add More Colors](https://github.com/sysrep/time-viz/blob/master/Add_More_Colors.md)
