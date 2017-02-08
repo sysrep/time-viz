@@ -145,3 +145,4 @@ For exmaple, the backgorund color of anger element should be `rgba(217, 85, 151,
   background: rgba(217, 85, 151, 1.0);
 }
 ```
+<img src="https://public-media.interaction-design.org/images/uploads/955c62c82771f57ce02cab0bd0a4bfae.jpg" >
