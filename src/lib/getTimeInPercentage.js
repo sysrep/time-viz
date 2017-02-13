@@ -1,7 +1,5 @@
-export const getTimeInPercentage = (time) => {
+export const getTimeInPercentage = (time, from, to) => {
   const t = new Date(time);
-  const seconds = t.getSeconds();
-  const hoursInSec = t.getHours() * 60 * 60;
-  const minInSec = t.getMinutes() * 60;
-  return 100 * ((hoursInSec + minInSec + seconds) / 86400);
+  const totalTimeOnTimeLine = Math.floor(to - from);
+  return 100 * ((t.getTime() - from.getTime()) / totalTimeOnTimeLine);
 }
