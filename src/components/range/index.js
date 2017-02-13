@@ -1,13 +1,16 @@
 import React from 'react'
+import './style.css';
 
 export const Range = (props) => (
-  <input
-    type="range"
-    value={props.value}
-    min={props.min}
-    max={props.max}
-    onChange={props.onChange}
-  />
+  <div className="zoom">
+    <input
+      type="range"
+      value={props.value}
+      min={props.min}
+      max={props.max}
+      onChange={props.onChange}
+    />
+  </div>
 )
 
 Range.propTypes = {
