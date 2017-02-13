@@ -12,7 +12,7 @@ export const Event = (props) => {
     <div
       className="eventPointContainer"
       style={{
-        left: `${getTimeInPercentage(props.event.start)}%`,
+        left: `${getTimeInPercentage(props.event.start, props.from, props.to)}%`,
       }}
     >
         <div
@@ -104,4 +104,6 @@ Event.propTypes = {
   sentiment: React.PropTypes.number,
   emotion: React.PropTypes.object,
   zoom: React.PropTypes.number,
+  from:  React.PropTypes.object,
+  to:  React.PropTypes.object,
 }
