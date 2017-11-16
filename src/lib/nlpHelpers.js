@@ -54,7 +54,7 @@ export const getTokensWithOutNumbersAndStopWords = (textContent) => {
   return arrayDiff(singularizedTokens, stopwords.english);
 }
 
-export const getFrequentWords = (array, numberOfWords = 10) => { // eslint-disable-line no-unused-vars
+export const getFrequentWords = (array, numberOfWords = 10) => {
   const frequencies = {};
   for (const word of array) {
     frequencies[word] = frequencies[word] || 0;
