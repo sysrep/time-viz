@@ -2,6 +2,7 @@
   "name": "time-viz",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sysrep.github.io/time-viz/",
   "devDependencies": {
     "react-scripts": "0.8.5"
   },
@@ -16,6 +17,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
   }
 }
